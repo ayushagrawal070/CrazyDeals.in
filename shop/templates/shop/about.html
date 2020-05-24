@@ -1,0 +1,53 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %} About Us - CrazyDeals.in{% endblock %}
+{% block body %}
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">CrazyDeals.in !</h1>
+      <p> CrazyDeals.in is an Indian e-commerce company based in Bengaluru, India. It was founded by Ayush Agrawal in 2007. The company initially focused on book sales, before expanding into other product categories such as consumer electronics, fashion, home essentials & groceries, and lifestyle products.
+
+The service competes primarily with Amazon's Indian subsidiary, and the domestic rival Snapdeal. As of March 2017, CrazyDeals.in held a 39.5% market share of India's e-commerce industry.CrazyDeals.in is significantly dominant in the sale of apparel (a position that was bolstered by its acquisitions of Myntra and Jabong.com), and was described as being "neck and neck" with Amazon in the sale of electronics and mobile phones. CrazyDeals.in also owns PhonePe, a mobile payments service based on the Unified Payments Interface (UPI).</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    </div>
+  </div>
+
+    <hr>
+</main>
+
+{% endblock %}
+
+
+{% block js %}
+<script>
+console.log('working');
+if(localStorage.getItem('cart') == null){
+var cart = {};
+}
+else
+{
+cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+$('.cart').click(function(){
+console.log('clicked');
+var idstr = this.id.toString();
+console.log(idstr);
+if (cart[idstr] !=undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+console.log(cart);
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+});
+$('#popcart').popover();
+document.getElementById("popcart").setAttribute('data-content', '<h5>Cart for your items in my shopping cart</h5>');
+</script>
+{% endblock %}
