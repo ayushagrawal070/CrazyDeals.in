@@ -1,0 +1,16 @@
+{% extends 'users/basic.html' %}
+{% block title%} Log out- CrazyDeals.in{% endblock title%}
+{% block body %}
+<div class="container mt-4" style="background-color: #e6eeff">
+    <h2>You Have been Logged Out</h2>
+    <div class="content-section">
+        <div class="border-top pt-3">
+            <large class="text-muted">Want to Login ? <a class="ml-2" href="{% url 'login' %}"><button class="btn btn-info">Login Again Here</button></a></large>
+            <br><br>
+            <large class="text-muted">Want to Register New Account ?<a class="ml-2" href="{% url 'register' %}"><button class="btn btn-primary">Register</button></a></large>
+            <br><br>
+            <large class="text-muted">Go Back without Login<a class="ml-2" href="/shop"><button class="btn btn-warning">Home</button></a></large>
+        </div>
+    </div>
+</div>
+{% endblock body %}
